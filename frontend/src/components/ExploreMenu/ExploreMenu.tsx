@@ -9,7 +9,7 @@ type PropsExploreMenu = {
 
 const ExploreMenu = ({ category, setCategory }: PropsExploreMenu) => {
     return (
-        <div id='explore-menu' className='flex flex-col gap-5'>
+        <div className='flex flex-col gap-5'>
             <h1 className='text-slate-700 text-2xl font-semibold'>
                 Explore nosso menu
             </h1>
