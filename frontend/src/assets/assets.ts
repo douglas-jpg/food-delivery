@@ -60,23 +60,7 @@ import bag_icon from './bag_icon.png';
 import logout_icon from './logout_icon.png';
 import parcel_icon from './parcel_icon.png';
 
-export type AssetImages = {
-    [key: string]: string;
-};
-
-export type MenuItem = {
-    menu_name: string;
-    menu_image: string;
-};
-
-export type FoodItem = {
-    _id: string;
-    name: string;
-    image: string;
-    price: number;
-    description: string;
-    category: string;
-};
+import { AssetImages, MenuItem, FoodItem } from '../types/items';
 
 export const assets: AssetImages = {
     logo,

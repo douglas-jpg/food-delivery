@@ -1,5 +1,5 @@
 import { Dispatch } from 'react';
-import { MenuItem } from '../../assets/assets';
+import { MenuItem } from '../../types/items';
 
 type PropsItem = {
     item: MenuItem;
