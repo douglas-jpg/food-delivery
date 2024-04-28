@@ -12,18 +12,20 @@ const FoodDisplay = ({ category }: PropsFoodDisplay) => {
     return (
         <div className='mt-7'>
             <h2 className='text-xl font-bold sm:text-6 md:text-[2vw]'>Pratos principais perto de você</h2>
-            <div className='grid grid-cols-[240px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4  gap-7 gap-y-12 mt-7'>
+            <div className='grid grid-cols-[240px] sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-7 gap-y-12 mt-7'>
                 {food_list.map((item, index) => {
-                    return (
-                        <CardFoodItem
-                            key={index}
-                            id={item._id}
-                            name={item.name}
-                            price={item.price}
-                            description={item.description}
-                            image={item.image}
-                        />
-                    );
+                    if(category === "All" || category === item.category){
+                        return (
+                            <CardFoodItem
+                                key={index}
+                                id={item._id}
+                                name={item.name}
+                                price={item.price}
+                                description={item.description}
+                                image={item.image}
+                            />
+                        );
+                    }
                 })}
             </div>
         </div>

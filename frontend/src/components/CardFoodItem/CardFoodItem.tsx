@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useContext } from 'react';
 import { assets } from '../../assets/assets';
+import { StoreContext } from '../../context/StoreContext';
 
 type PropsCardFoodItem = {
     id: string;
@@ -16,7 +17,8 @@ const CardFoodItem = ({
     description,
     image,
 }: PropsCardFoodItem) => {
-    const [itemCount, setItemCount] = useState<number>(0);
+
+    const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
     return (
         <div className='w-full m-auto border rounded-t-md shadow-md '>
@@ -27,25 +29,25 @@ const CardFoodItem = ({
                         alt={name}
                         className='w-full rounded-t-md'
                     />
-                    {!itemCount ? (
+                    {cartItems && !cartItems[id] ? (
                         <img
-                        className='w-8 absolute bottom-4 right-4 cursor-pointer rounded-full'
+                            className='w-8 absolute bottom-4 right-4 cursor-pointer rounded-full'
                             src={assets.add_icon_white}
                             alt='Add icon'
-                            onClick={() => setItemCount((prev) => ++prev)}
+                            onClick={() => addToCart(id)}
                         />
                     ) : (
                         <div className='absolute bottom-4 right-4 flex items-center gap-2 p-1 rounded-full bg-white'>
                             <img
-                            className='w-8'
-                                onClick={() => setItemCount((prev) => --prev)}
+                                className='w-8'
+                                onClick={() => removeFromCart(id)}
                                 src={assets.remove_icon_red}
                                 alt='remove icon'
                             />
-                            <p>{itemCount}</p>
+                            <p>{cartItems && cartItems[id]}</p>
                             <img
-                            className='w-8'
-                                onClick={() => setItemCount((prev) => ++prev)}
+                                className='w-8'
+                                onClick={() => addToCart(id)}
                                 src={assets.add_icon_green}
                                 alt=''
                             />
