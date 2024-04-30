@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Nav = () => {
     const [menu, setMenu] = useState<string>('inicio');
@@ -6,23 +7,26 @@ const Nav = () => {
     return (
         <nav>
             <ul className='hidden gap-3 text-base md:flex md:gap-5 xl:text-xl text-slate-500 cursor-pointer'>
-                <li
+                <Link
+                    to={'/'}
                     onClick={() => setMenu('inicio')}
                     className={
                         menu === 'inicio' ? 'border-b-2 border-slate-500' : ''
                     }
                 >
                     inicio
-                </li>
-                <li
+                </Link>
+                <a
+                    href='#explore-menu'
                     onClick={() => setMenu('menu')}
                     className={
                         menu === 'menu' ? 'border-b-2 border-slate-500' : ''
                     }
                 >
                     menu
-                </li>
-                <li
+                </a>
+                <a
+                    href='#app-download'
                     onClick={() => setMenu('app-mobile')}
                     className={
                         menu === 'app-mobile'
@@ -31,8 +35,9 @@ const Nav = () => {
                     }
                 >
                     app-mobile
-                </li>
-                <li
+                </a>
+                <a
+                    href='#footer'
                     onClick={() => setMenu('contacte-nos')}
                     className={
                         menu === 'contacte-nos'
@@ -41,7 +46,7 @@ const Nav = () => {
                     }
                 >
                     contacte-nos
-                </li>
+                </a>
             </ul>
         </nav>
     );

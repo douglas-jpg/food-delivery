@@ -2,7 +2,7 @@ import { assets } from '../../assets/assets';
 
 const Footer = () => {
     return (
-        <footer className='flex flex-col items-center gap-5 py-5 px-[8vw] pt-10 lg:pt-20 mt-24 text-zinc-200 bg-zinc-900'>
+        <footer id='footer' className='flex flex-col items-center gap-5 py-5 px-[8vw] pt-10 lg:pt-20 mt-24 text-zinc-200 bg-zinc-900'>
             <div className='w-full grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-7 lg:gap-20'>
                 <div className='col-span-2 flex flex-col items-start gap-3 lg:gap-5'>
                     <img src={assets.logo} alt='Logo rango' />
