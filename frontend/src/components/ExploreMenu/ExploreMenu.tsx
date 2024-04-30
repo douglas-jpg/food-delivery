@@ -13,7 +13,7 @@ const ExploreMenu = ({ category, setCategory }: PropsExploreMenu) => {
             <h1 className='text-slate-700 text-2xl font-semibold'>
                 Explore nosso menu
             </h1>
-            <p className='max-w-[50%] text-slate-700'>
+            <p className='max-w-full md:max-w-[50%] text-slate-700'>
                 Escolha entre um menu diversificado com uma deliciosa variedade
                 de pratos. nossa missão é satisfazer seus desejos e elevar sua
                 experiência gastronômica, uma refeição deliciosa de cada vez

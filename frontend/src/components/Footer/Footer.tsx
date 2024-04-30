@@ -2,9 +2,9 @@ import { assets } from '../../assets/assets';
 
 const Footer = () => {
     return (
-        <footer className='flex flex-col items-center gap-5 py-5 px-[8vw] pt-20 mt-24 text-zinc-200 bg-zinc-900'>
-            <div className='w-full grid grid-cols-4 gap-20'>
-                <div className='col-span-2 flex flex-col items-start gap-5'>
+        <footer className='flex flex-col items-center gap-5 py-5 px-[8vw] pt-10 lg:pt-20 mt-24 text-zinc-200 bg-zinc-900'>
+            <div className='w-full grid grid-cols-1 md:grid-cols-4 gap-5 md:gap-7 lg:gap-20'>
+                <div className='col-span-2 flex flex-col items-start gap-3 lg:gap-5'>
                     <img src={assets.logo} alt='Logo rango' />
                     <p>
                         Lorem Ipsum é um texto simplesmente fictício da
@@ -32,20 +32,20 @@ const Footer = () => {
                         />
                     </div>
                 </div>
-                <div className='flex flex-col items-start gap-5 '>
+                <div className='col-span-3 md:col-span-1 flex flex-col items-start gap-3 lg:gap-5 '>
                     <h2 className='text-white text-xl font-bold'>EMPRESA</h2>
-                    <ul className='flex flex-col gap-2'>
+                    <ul className='flex flex-col gap-0 lg:gap-2'>
                         <li>Inicio</li>
                         <li>Sobre nos</li>
                         <li>Delivery</li>
                         <li>Privacy policy</li>
                     </ul>
                 </div>
-                <div className='flex flex-col items-start gap-5'>
+                <div className='col-span-2 md:col-span-1 flex flex-col items-start gap-3 lg:gap-5'>
                     <h2 className='text-white text-xl font-bold'>
                         ENTRAR EM CONTATO
                     </h2>
-                    <ul className='flex flex-col gap-2'>
+                    <ul className='flex flex-col gap-0 lg:gap-2'>
                         <li>+00 0 0000-0000</li>
                         <li>contato@email.com</li>
                     </ul>

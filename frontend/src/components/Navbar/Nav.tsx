@@ -5,7 +5,7 @@ const Nav = () => {
 
     return (
         <nav>
-            <ul className='flex gap-5 text-slate-500 text-lg cursor-pointer'>
+            <ul className='hidden gap-3 text-base md:flex md:gap-5 xl:text-xl text-slate-500 cursor-pointer'>
                 <li
                     onClick={() => setMenu('inicio')}
                     className={

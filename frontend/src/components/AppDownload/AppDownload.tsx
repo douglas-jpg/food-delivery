@@ -3,7 +3,7 @@ import { assets } from "../../assets/assets"
 const AppDownload = () => {
   return (
     <div className="m-auto mt-24 text-lg md:text-[3vw] text-center font-medium">
-        <p className="leading-9">
+        <p className="leading-[36px]">
         Para uma melhor experiência baixe <br /> Rango App
         </p>
         <div className="flex justify-center sm:gap-2 gap-[2vw] mt-10">

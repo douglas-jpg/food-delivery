@@ -17,7 +17,6 @@ const CardFoodItem = ({
     description,
     image,
 }: PropsCardFoodItem) => {
-
     const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
     return (
