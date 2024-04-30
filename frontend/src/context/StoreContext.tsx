@@ -2,7 +2,6 @@ import {
     Dispatch,
     SetStateAction,
     createContext,
-    useEffect,
     useState,
 } from 'react';
 import { FoodItem } from '../types/items';
@@ -50,10 +49,6 @@ const StoreContextProvider: React.FC<{ children: React.ReactNode }> = ({
     const removeFromCart = (itemId: string): void => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     };
-
-    useEffect(() => {
-        console.log(cartItems)
-    }, [cartItems]);
 
     const contextValue = {
         food_list,
