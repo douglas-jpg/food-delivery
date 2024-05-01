@@ -4,7 +4,7 @@ import Nav from './Nav';
 const Navbar = () => {
     // sm: 640 md: 768 lg: 1024 xl: 1280 2xl: 1538
     return (
-        <div className='flex justify-between py-5 items-center'>
+        <div id="navbar" className='flex justify-between py-5 items-center'>
             <img src={assets.logo} alt='logo do site' className='w-24 md:w-auto' />
             <Nav />
             <div className='gap-5 lg:gap-10 flex items-center cursor-pointer'>
