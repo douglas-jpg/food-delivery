@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { FaArrowUp } from 'react-icons/fa6';
 
 const BackToTopButton = () => {
     const [backToTop, setBackToTop] = useState(false);
@@ -27,7 +28,7 @@ const BackToTopButton = () => {
                 !backToTop ? 'hidden' : ''
             }`}
         >
-            <a className='flex items-center justify-center'>^</a>
+            <FaArrowUp className='flex justify-center items-center w-full h-full p-3' />
         </div>
     );
 };

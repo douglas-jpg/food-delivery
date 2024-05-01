@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { assets } from '../../assets/assets';
 import { StoreContext } from '../../context/StoreContext';
+import { FaPlus, FaMinus } from 'react-icons/fa6';
 
 type PropsCardFoodItem = {
     id: string;
@@ -22,33 +23,29 @@ const CardFoodItem = ({
     return (
         <div className='w-full m-auto border rounded-t-md shadow-md '>
             <figure>
-                <div className='relative'>
+                <div className='relative select-none'>
                     <img
                         src={image}
                         alt={name}
                         className='w-full rounded-t-md'
                     />
                     {cartItems && !cartItems[id] ? (
-                        <img
-                            className='w-8 absolute bottom-4 right-4 cursor-pointer rounded-full'
-                            src={assets.add_icon_white}
-                            alt='Add icon'
+                        <FaPlus
                             onClick={() => addToCart(id)}
+                            className='w-8 h-8 p-2 absolute bottom-4 right-4 cursor-pointer rounded-full bg-white text-slate-700'
                         />
                     ) : (
                         <div className='absolute bottom-4 right-4 flex items-center gap-2 p-1 rounded-full bg-white'>
-                            <img
-                                className='w-8'
+                            <FaMinus
                                 onClick={() => removeFromCart(id)}
-                                src={assets.remove_icon_red}
-                                alt='remove icon'
+                                className='rounded-full p-2 w-8 h-8 bg-red-200 text-red-500 cursor-pointer'
                             />
-                            <p>{cartItems && cartItems[id]}</p>
-                            <img
-                                className='w-8'
+                            <p className='select-none'>
+                                {cartItems && cartItems[id]}
+                            </p>
+                            <FaPlus
                                 onClick={() => addToCart(id)}
-                                src={assets.add_icon_green}
-                                alt=''
+                                className='rounded-full p-2 w-8 h-8 bg-green-200 text-green-500 cursor-pointer'
                             />
                         </div>
                     )}
