@@ -34,4 +34,3 @@ const BackToTopButton = () => {
 };
 
 export default BackToTopButton;
-// !backToTop ? 'hidden' : ''

@@ -21,7 +21,7 @@ const CardFoodItem = ({
     const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
 
     return (
-        <div className='w-full m-auto border rounded-t-md shadow-md '>
+        <div className='w-full m-auto border rounded-t-md shadow-md animate-fadeIn'>
             <figure>
                 <div className='relative select-none'>
                     <img
