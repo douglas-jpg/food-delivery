@@ -1,29 +1,13 @@
-import {
-    Dispatch,
-    SetStateAction,
-    createContext,
-    useState,
-} from 'react';
-import { FoodItem } from '../types/items';
+import { createContext, useState } from 'react';
+import { CartItems, FoodItem, PropsStoreContext } from '../types/items';
 import { food_list } from '../assets/assets';
-
-type PropsCardItems = {
-    [itemId: string]: number;
-};
-
-type PropsStoreContext = {
-    food_list: FoodItem[];
-    cartItems?: PropsCardItems;
-    setCartItems: Dispatch<SetStateAction<PropsCardItems>>;
-    addToCart: (itemId: string) => void;
-    removeFromCart: (itemId: string) => void;
-};
 
 const DEFAULT_VALUE: PropsStoreContext = {
     food_list: [],
     setCartItems: () => {},
     addToCart: () => {},
     removeFromCart: () => {},
+    getTotalCartAmount: () => 0,
 };
 
 export const StoreContext = createContext<PropsStoreContext>(DEFAULT_VALUE);
@@ -31,7 +15,7 @@ export const StoreContext = createContext<PropsStoreContext>(DEFAULT_VALUE);
 const StoreContextProvider: React.FC<{ children: React.ReactNode }> = ({
     children,
 }) => {
-    const [cartItems, setCartItems] = useState<PropsCardItems>(() => ({}));
+    const [cartItems, setCartItems] = useState<CartItems>(() => ({}));
 
     const addToCart = (itemId: string): void => {
         if (cartItems) {
@@ -50,12 +34,28 @@ const StoreContextProvider: React.FC<{ children: React.ReactNode }> = ({
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
     };
 
+    const getTotalCartAmount = (): number => {
+        let totalAmount: number = 0;
+        for (const item in cartItems) {
+            if (cartItems[item] > 0) {
+                const itemInfo: FoodItem | undefined = food_list.find(
+                    (product) => product._id === item
+                );
+                if (itemInfo) {
+                    totalAmount += itemInfo?.price * cartItems[item];
+                }
+            }
+        }
+        return totalAmount;
+    };
+
     const contextValue = {
         food_list,
         cartItems,
         setCartItems,
         addToCart,
         removeFromCart,
+        getTotalCartAmount,
     };
 
     return (
