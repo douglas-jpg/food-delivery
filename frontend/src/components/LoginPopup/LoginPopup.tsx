@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { RxCross1 } from 'react-icons/rx';
-import Input from './Input';
+import Input from '../InputsFIleds/Input';
 
 type PropsLoginPopup = {
     setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;

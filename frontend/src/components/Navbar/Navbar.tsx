@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 import { CiSearch } from 'react-icons/ci';
 import { BiSolidBasket } from 'react-icons/bi';
 import { StoreContext } from '../../context/StoreContext';
+import { PropsStoreContext } from '../../types/items';
 import { assets } from '../../assets/assets';
 import Nav from './Nav';
-import { PropsStoreContext } from '../../types/items';
 
 type PropsNavbar = {
     setShowLogin: React.Dispatch<React.SetStateAction<boolean>>;

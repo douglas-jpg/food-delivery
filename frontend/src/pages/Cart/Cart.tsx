@@ -4,11 +4,10 @@ import CartItem from '../../components/CartItem/CartItem';
 import CartCheckout from '../../components/CartCheckout/CartCheckout';
 
 const Cart = () => {
-    const { cartItems, food_list, removeFromCart, getTotalCartAmount } =
-        useContext(StoreContext);
+    const { cartItems, food_list, removeFromCart } = useContext(StoreContext);
     return (
         <div className='mt-24'>
-            <div>
+            <div className='mb-16'>
                 <div className='grid grid-cols-7 items-center text-slate-500 text-sm md:text-[1vw]'>
                     <p className='col-span-1'>Itens</p>
                     <p className='md:col-span-2 col-span-1'>Nome</p>
@@ -32,11 +31,7 @@ const Cart = () => {
                     }
                 })}
             </div>
-            <CartCheckout
-                subtotal={getTotalCartAmount()}
-                desconto={2}
-                total={getTotalCartAmount() + 2}
-            />
+            <CartCheckout buttonText='fazer o check-out' navigateTo='/order' cupom />
         </div>
     );
 };

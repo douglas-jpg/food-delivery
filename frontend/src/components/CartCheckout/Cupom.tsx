@@ -1,6 +1,6 @@
 const Cupom = () => {
     return (
-        <form>
+        <div>
             <p className='text-slate-700'>
                 Se você tiver um código promocional, insira-o aqui.
             </p>
@@ -10,14 +10,11 @@ const Cupom = () => {
                     placeholder='Codigo promocional'
                     className='p-2 rounded-l-md border outline-none focus:border-black'
                 />
-                <button
-                    type='submit'
-                    className='bg-black text-white rounded-r-md py-2 px-4 border-2 border-black'
-                >
+                <button className='bg-black text-white rounded-r-md py-2 px-4 border-2 border-black'>
                     Enviar
                 </button>
             </div>
-        </form>
+        </div>
     );
 };
 

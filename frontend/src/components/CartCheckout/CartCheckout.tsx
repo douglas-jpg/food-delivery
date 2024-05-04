@@ -1,37 +1,54 @@
+import { useNavigate } from 'react-router-dom';
 import Cupom from './Cupom';
+import { useContext } from 'react';
+import { StoreContext } from '../../context/StoreContext';
+import { PropsStoreContext } from '../../types/items';
 
 type PropsCartCheckout = {
-    subtotal: number;
-    desconto: number;
-    total: number;
+    buttonText: string;
+    navigateTo: string;
+    cupom?: boolean;
 };
 
-const CartCheckout = ({ subtotal, desconto, total }: PropsCartCheckout) => {
+const CartCheckout = ({ buttonText, cupom, navigateTo }: PropsCartCheckout) => {
+    const { getTotalCartAmount } = useContext<PropsStoreContext>(StoreContext);
+
+    const navigate = useNavigate();
+
     return (
-        <div className='flex flex-col-reverse md:flex-row justify-between gap-4 md:gap-[6vw] xl:gap[12vw] mt-20'>
+        <div className='flex flex-col-reverse md:flex-row justify-between gap-4 md:gap-[6vw] xl:gap[12vw]'>
             <div className='flex-1 flex flex-col gap-4 mt-6 md:mt-0'>
                 <h2 className='text-xl font-semibold'>Total:</h2>
                 <div className='flex flex-col gap-2 font-semibold text-slate-600'>
                     <div className='flex justify-between'>
                         <p>Subtotal</p>
-                        <p>{subtotal} R$</p>
+                        <p>{getTotalCartAmount()} R$</p>
                     </div>
                     <hr />
                     <div className='flex justify-between'>
-                        <p>Desconto do Delivery</p>
-                        <p>{desconto} R$</p>
+                        <p>Taxa de Entrega</p>
+                        <p>{getTotalCartAmount() === 0 ? 0 : 2} R$</p>
                     </div>
                     <hr />
                     <div className='flex justify-between text-black'>
                         <p>Total</p>
-                        <p>{total} R$</p>
+                        <p>
+                            {getTotalCartAmount() === 0
+                                ? 0
+                                : getTotalCartAmount() + 2}{' '}
+                            R$
+                        </p>
                     </div>
                 </div>
-                <button className='uppercase text-white py-2 rounded w-52 bg-orange-500 hover:bg-orange-600'>
-                    fazer o check-out
+                <button
+                    type='submit'
+                    onClick={() => navigate(navigateTo)}
+                    className='uppercase text-white py-2 rounded max-w-xs bg-orange-500 hover:bg-orange-600'
+                >
+                    {buttonText}
                 </button>
             </div>
-            <Cupom />
+            {cupom && <Cupom />}
         </div>
     );
 };
