@@ -1,10 +1,10 @@
-export type Food = {
+export interface IFood {
     name: string;
     description: string;
     price: number;
     image: string;
     category: FoodCategory;
-};
+}
 
 export type FoodCategory =
     | 'salada'
