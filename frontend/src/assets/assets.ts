@@ -69,11 +69,11 @@ export const assets: AssetImages = {
 
 export const menu_list: MenuItem[] = [
     {
-        menu_name: 'salada',
+        menu_name: 'Salada',
         menu_image: menu_1,
     },
     {
-        menu_name: 'pães',
+        menu_name: 'Pães',
         menu_image: menu_2,
     },
     {
