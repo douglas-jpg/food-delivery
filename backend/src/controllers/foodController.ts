@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { foodModel } from '../models/foodModel';
-import { IFood } from '../types/food';
+import { IFood } from '../types/foods/food';
 import fs from 'fs';
 
 // add food item

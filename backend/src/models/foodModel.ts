@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { IFood } from '../types/food';
+import { IFood } from '../types/foods/food';
 
 const foodSchema = new mongoose.Schema<IFood>({
     name: { type: String, required: true },
@@ -9,4 +9,5 @@ const foodSchema = new mongoose.Schema<IFood>({
     category: { type: String, required: true },
 });
 
-export const foodModel = mongoose.models.foodModel || mongoose.model<IFood>('food', foodSchema);
+export const foodModel =
+    mongoose.models.foodModel || mongoose.model<IFood>('food', foodSchema);
