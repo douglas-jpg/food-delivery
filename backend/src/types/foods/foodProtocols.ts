@@ -18,14 +18,13 @@ export interface ICreateFoodController {
 }
 
 // interface remove
-
 export interface IFoodRemoved extends IFood {
-    id: string;
+    _id: string;
 }
 
 export interface IRemoveFoodRepository {
     removeFood(food: IFoodRemoved): Promise<IFoodRemoved>;
 }
 export interface IRemoveFoodController {
-    handle(httpRequest: HttpRequest<IFoodRemoved>): Promise<HttpResponse<IFoodRemoved>>;
+    handle(food: IFoodRemoved): Promise<HttpResponse<IFoodRemoved>>;
 }

@@ -5,7 +5,7 @@ export class MongoRemoveFoodRepository implements IRemoveFoodRepository {
     async removeFood(food: IFoodRemoved) {
         try {
             const removedFood = await foodModel.findById(food._id);
-            await foodModel.findByIdAndDelete();
+            await foodModel.findByIdAndDelete(food._id);
             return removedFood;
         } catch (error) {
             console.error('Error remove food:', error);

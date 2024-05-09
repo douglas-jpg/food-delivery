@@ -46,11 +46,10 @@ foodRouter.post(
 
 foodRouter.delete('/remove', async (req: Request, res: Response) => {
     const mongoRemoveFoodRepository = new MongoRemoveFoodRepository();
+
     const removeFoodController = new RemoveFoodController(
         mongoRemoveFoodRepository
     );
-
-    console.log(req.body)
 
     const { body, statusCode } = await removeFoodController.handle(req.body);
 
